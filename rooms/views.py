@@ -1,20 +1,19 @@
-from django.urls import reverse_lazy
-from django.views import generic
-from .room_form import RoomForm
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from .form import RoomForm
 
-class RoomFormView(generic.FormView):
-    template_name = "rooms/create_room.html"
-    form_class = RoomForm
-    success_url = reverse_lazy('create_room')
+@login_required
+def create_room(request):
+    if request.method == "POST":
+        form = RoomForm(request.POST)
+        if form.is_valid():
+            room = form.save(commit=False)
+            # el creador es el usuario logueado -> su profile
+            room.creator = request.user.profile  
+            room.save()
+            form.save_m2m()  # guardar instrumentos seleccionados
+            return redirect(room.url_jitsi)  # redirige a la página principal o donde quieras
+    else:
+        form = RoomForm()
 
-
-    def form_valid(self, form):
-
-        room = form.save(commit=False)
-        room.save()  # primero guarda el objeto
-
-        # luego guarda los instrumentos (ManyToMany)
-        form.save_m2m()
-
-        return super().form_valid(form)
-    
+    return render(request, "rooms/create_room.html", {"form": form})

@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Feelin' Star{% endblock %}
+
+{% block content %}
+
+<!-- Header -->
+<header class="ex-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-10 offset-xl-1">
+                <h1>Registrarse</h1>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="login-wrapper">
+    <div class="login-form-container">
+        <p class="login-title">Registrarse</p>
+
+        <form class="login-form" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            <!-- Username -->
+            <div class="login-input-group">
+                {{ form.username.label_tag }}
+                {{ form.username }}
+            </div>
+
+            <!-- Email -->
+            <div class="login-input-group">
+                {{ form.email.label_tag }}
+                {{ form.email }}
+            </div>
+
+            <!-- Passwords -->
+            <div class="login-input-group">
+                {{ form.password1.label_tag }}
+                {{ form.password1 }}
+            </div>
+            <div class="login-input-group">
+                {{ form.password2.label_tag }}
+                {{ form.password2 }}
+            </div>
+
+            <!-- Bio -->
+            <div class="login-input-group">
+                {{ form.bio.label_tag }}
+                {{ form.bio }}
+            </div>
+
+            <!-- Instruments -->
+            <div class="login-input-group">
+                <label>Instrumentos que tocas</label>
+                {{ form.instruments }}
+            </div>
+
+            <!-- Profile picture -->
+            <div class="login-input-group">
+                {{ form.profile_picture.label_tag }}
+                {{ form.profile_picture }}
+            </div>
+
+            <br>
+            <button type="submit" class="login-sign">Registrarse</button>
+        </form>
+
+        <p class="login-signup">¿Ya tienes una cuenta?
+            <a rel="noopener noreferrer" href="{% url 'users:login' %}">Iniciar sesión</a>
+        </p>
+    </div>
+</div>
+
+{% endblock %}

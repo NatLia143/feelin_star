@@ -1,6 +1,8 @@
 from django.urls import path
-from .views import RoomFormView
+from . import views
+
+app_name = "rooms"
 
 urlpatterns = [
-    path('crear/', RoomFormView.as_view(), name = "create_room")
+    path("crear/", views.create_room, name="create_room"),
 ]

@@ -1,20 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% load static %}
 
-    <h1>form de salas</h1>
+{% block title %}Crear sala - Feelin' Star{% endblock %}
 
-    <form action="{% url "create_room" %}" method="post">
+{% block content %}
+    <!-- Header -->
+    <header class="ex-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-10 offset-xl-1">
+                    <h1>Crear sala</h1>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </header> <!-- end of ex-header -->
+    <!-- end of header -->
+
+<div class="container mt-4">
+    <form method="post">
         {% csrf_token %}
-        {{form.as_p}}
-        <button type="submit">Crear</button>
+        {{ form.as_p }}
+
+        <button type="submit" class="btn btn-primary">Crear Sala</button>
     </form>
-
-
-</body>
-</html>
+</div>
+{% endblock %}

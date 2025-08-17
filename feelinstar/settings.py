@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rooms',
     'users',
+    'pages',
+    'instruments',
 ]
 
 MIDDLEWARE = [
@@ -117,9 +119,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"), 
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = 'users:login'            # Si no está logueado, redirige aquí
+LOGIN_REDIRECT_URL = 'rooms:create_room'   # Después de login exitoso
+LOGOUT_REDIRECT_URL = 'pages:index'  # Después de cerrar sesión
