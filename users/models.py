@@ -15,9 +15,3 @@ class Profile(models.Model):
         return f"{self.user.username}'s Profile"
 
 
-# Create or update user profile when User instance is created/updated
-
-@receiver(post_save, sender=User)
-def create_user_profile(sender, instance, created, **kwargs):
-    if created:
-        Profile.objects.create(user=instance)

@@ -7,8 +7,13 @@ from django.contrib.auth import authenticate, login, logout
 def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST, request.FILES)
+
         if form.is_valid():
             user = form.save()
+            print(form.errors)
+
+            print("Se creo el usuario")
+            
             # El perfil ya existe gracias a la señal
             profile = user.profile
             profile.bio = form.cleaned_data.get('bio')
@@ -17,6 +22,7 @@ def register(request):
             profile.save()
             return redirect('users:login')
     else:
+        print("error")
         form = UserRegisterForm()
     return render(request, 'users/signup.html', {'form': form})
 
