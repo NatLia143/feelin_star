@@ -40,6 +40,6 @@
 ## Estado actual
 
 El proyecto permite registrar usuarios, iniciar/cerrar sesión y crear salas. La gestión de perfiles es automática.  
-Faltan funcionalidades avanzadas y vistas CRUD completas.
+Faltan funcionalidades avanzadas.
 
 ---
