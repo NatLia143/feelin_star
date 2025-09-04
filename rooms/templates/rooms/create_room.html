@@ -3,6 +3,7 @@
 
 {% block title %}Crear sala - Feelin' Star{% endblock %}
 
+
 {% block content %}
     <!-- Header -->
     <header class="ex-header">
@@ -10,18 +11,47 @@
             <div class="row">
                 <div class="col-xl-10 offset-xl-1">
                     <h1>Crear sala</h1>
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </header> <!-- end of ex-header -->
+                </div>
+            </div>
+        </div>
+    </header>
     <!-- end of header -->
 
 <div class="container mt-4">
-    <form method="post">
+    <form method="post" class="form-container">
         {% csrf_token %}
-        {{ form.as_p }}
 
-        <button type="submit" class="btn btn-primary">Crear Sala</button>
+        <!-- Nombre de la sala -->
+        <div>
+            <label for="id_room_name">Nombre de la sala:</label>
+            {{ form.room_name }}
+        </div>
+
+        <!-- Descripción -->
+        <div>
+            <label for="id_room_description">Descripción:</label>
+            {{ form.room_description }}
+        </div>
+
+        <!-- Instrumentos -->
+        <div class="instruments">
+            <label for="id_required_instruments">Instrumentos:</label>
+            {{ form.required_instruments }}
+        </div>
+
+        <!-- Pública/Privada -->
+        <div>
+            <label for="id_privacy">Pública/Privada:</label>
+            {{ form.privacy }}
+        </div>
+
+        <!-- Botón -->
+        <div class="full">
+            <button type="submit" class="btn-submit">Crear sala</button>
+        </div>
     </form>
 </div>
+
+ <br>
+
 {% endblock %}

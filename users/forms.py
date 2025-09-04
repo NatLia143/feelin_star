@@ -12,7 +12,7 @@ class UserRegisterForm(UserCreationForm):
     )
     instruments = forms.ModelMultipleChoiceField(
         queryset=Instrument.objects.all(),
-        widget=forms.CheckboxSelectMultiple,
+        widget=forms.CheckboxSelectMultiple(attrs={"class": "inp-cbx"}),
         required=False
     )
     profile_picture = forms.ImageField(required=False)
