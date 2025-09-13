@@ -940,7 +940,6 @@ a:hover.back-to-top {
 }
 
 /*Instruments*/
-<<<<<<< HEAD
 
 .checkbox-wrapper-46 input[type="checkbox"] {
   display: none;
@@ -1019,17 +1018,16 @@ a:hover.back-to-top {
     transform: scale(0.9);
   }
 }
-=======
->>>>>>> 23a17cf40b251bcdd04435344e19bc73b263912b
+
 
 .checkbox-wrapper-46 input[type="checkbox"] {
   display: none;
   visibility: hidden;
 }
 
-<<<<<<< HEAD
+
 /*Rooms*/
-=======
+
 .checkbox-wrapper-46 .cbx {
   margin: auto;
   -webkit-user-select: none;
@@ -1102,7 +1100,6 @@ a:hover.back-to-top {
     transform: scale(0.9);
   }
 }
->>>>>>> 23a17cf40b251bcdd04435344e19bc73b263912b
 
 .form-container {
   background: #d6c4e7;
